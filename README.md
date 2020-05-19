@@ -22,7 +22,7 @@ Also, please don't use this an an opportunity to learn a new framework - instead
 
 ## Submission
 
-Please clone this repo and submit to daniel.andrews@salesloft.com. The submission should include:
+Please clone this repo and submit via Greenhouse. The submission should include:
 
   * All source files in a zip file
   * A link to a running version of the application
