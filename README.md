@@ -24,6 +24,6 @@ Also, please don't use this an an opportunity to learn a new framework - instead
 
 Please clone this repo and submit via Greenhouse. The submission should include:
 
-  * All source files in a zip file
+  * A link to source files or GitHub repo
   * A link to a running version of the application
   * A README file with instructions on how to run the project locally
