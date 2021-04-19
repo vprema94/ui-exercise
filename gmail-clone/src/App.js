@@ -1,4 +1,4 @@
-import './App.css';
+import './stylesheets/App.css';
 import LandingPage from './components/landingPage';
 
 const App = () => {

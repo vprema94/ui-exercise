@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Segment } from 'semantic-ui-react';
 import EmailRow from './emailRow';
 
 const LandingPage = () => {
@@ -11,7 +12,9 @@ const LandingPage = () => {
 
    return (
       <div>
-         {mapMessages}
+         <Container>
+            {mapMessages}
+         </Container>
       </div>
    )
 }

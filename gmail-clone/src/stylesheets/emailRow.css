@@ -1,0 +1,23 @@
+#email-row-container {
+   display: flex; 
+   align-items: baseline;
+} 
+
+#icons {
+   display: flex;
+   width: 5%;
+   justify-content: space-between;
+} 
+
+#sender {
+   width: 20%;
+   padding: 0em 2em 0em 2em;
+} 
+
+#subject {
+   width: 63%;
+} 
+
+#date {
+   width: 7%;
+}
