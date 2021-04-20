@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Checkbox, Icon, Grid } from 'semantic-ui-react';
 import '../stylesheets/emailRow.css';
 import { connect } from 'react-redux';

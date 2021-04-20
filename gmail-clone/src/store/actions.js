@@ -19,10 +19,10 @@ export const deselectAllMessages = (deselectedMessages) => {
    }
 } 
 
-export const filterByTag = (filteredMessages) => {
+export const filterByTag = (selectedTag) => {
    return {
       type: 'FILTER_BY_TAG',
-      filteredMessages
+      selectedTag
    }
 } 
 

@@ -1,8 +1,8 @@
 const emailData = require('../emails.json').messages.map((message => 
-  ({isSelected: false, delete: false, ...message})
+  ({isSelected: false, isDeleted: false, ...message})
 )); 
 
-const initialState = { messages: emailData, selectAll: false }
+const initialState = { messages: emailData, selectAll: false, selectedTag: 'inbox' }
 
 export default (state=initialState, action) => {
 
@@ -29,7 +29,7 @@ export default (state=initialState, action) => {
     case 'FILTER_BY_TAG':
       return {
         ...state,
-        messages: [...action.filteredMessages], selectAll: false
+        selectedTag: action.selectedTag
       } 
 
     default:
