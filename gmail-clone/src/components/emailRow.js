@@ -4,30 +4,21 @@ import '../stylesheets/emailRow.css';
 import { connect } from 'react-redux';
 import { handleCheckbox } from '../store/actions';
 
-const EmailRow = ({id, subject, sender, date, isSelected, handleCheckbox}) => {
+const EmailRow = ({id, subject, sender, date, isSelected, handleCheckbox, emails}) => {
 
    const formattedDate = new Date(date).toDateString()
 
-   // const [checked, setChecked] = useState(isSelected);
-
-   // const toggleCheckbox = () => {
-   //    handleCheckbox(id)
-   // } 
-
-   // useEffect(() => {
-   //    toggleCheckbox()
-   // }, [handleCheckbox, isSelected])
-
-   // useEffect(() => {
-      // setChecked(!checked)
-      // handleCheckbox(id)
-   //    toggleCheckbox()
-   // }, [])
+   const onCheckboxClick = () => {
+      let newMessages = emails
+      const objIndex = newMessages.findIndex((message => message.id === id))
+      newMessages[objIndex].isSelected = !emails[objIndex].isSelected
+      handleCheckbox(newMessages)
+   }
 
    return (
       <Grid.Row class='email-row-container' id={id}>
          <div id='icons'>
-            <Checkbox checked={isSelected} onClick={() => handleCheckbox(id)}/>
+            <Checkbox checked={isSelected} onClick={onCheckboxClick}/>
             <Icon name='star'/>
          </div>
          <b id='sender'>{sender}</b>
@@ -37,4 +28,10 @@ const EmailRow = ({id, subject, sender, date, isSelected, handleCheckbox}) => {
    )
 }  
 
-export default connect(null, { handleCheckbox })(EmailRow)
+const mapStatetoProps = state => {
+   return ({
+     emails: state.messages
+   })
+}
+
+export default connect(mapStatetoProps, { handleCheckbox })(EmailRow)

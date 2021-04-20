@@ -2,6 +2,8 @@ import React from 'react';
 import { Grid, Header } from 'semantic-ui-react';
 import EmailContainer from './emailContainer';
 import IconBar from './iconBar';
+import SideBar from './sideBar';
+
 
 const LandingPage = () => { 
 
@@ -12,7 +14,7 @@ const LandingPage = () => {
          </Grid.Row>
          <Grid.Row>
             <Grid.Column width={3}>
-               <b>Left Column</b>
+               <SideBar/>
             </Grid.Column>
             <Grid.Column width={13}>
                <Grid.Row>

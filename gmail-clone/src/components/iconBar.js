@@ -3,16 +3,22 @@ import { connect } from 'react-redux';
 import { Container, Checkbox } from 'semantic-ui-react';
 import { selectAllMessages, deselectAllMessages } from '../store/actions'
 
-const IconBar = ({ selectAll, selectAllMessages, deselectAllMessages }) => {
+const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages }) => {
 
    const [checked, setChecked] = useState(false);
 
    const toggleCheckbox = () => {
       setChecked(!checked)
       if (selectAll) {
-         deselectAllMessages()
+         let deselectedMessages = messages.map((message) => {
+            return {...message, isSelected: false}
+          })
+         deselectAllMessages(deselectedMessages)
       } else {
-         selectAllMessages()
+         let selectedMessages = messages.map((message) => {
+            return {...message, isSelected: true}
+          })
+         selectAllMessages(selectedMessages)
       }
    }
 
@@ -27,7 +33,8 @@ const IconBar = ({ selectAll, selectAllMessages, deselectAllMessages }) => {
 
 const mapStatetoProps = state => {
    return ({
-     selectAll: state.selectAll
+      messages: state.messages,
+      selectAll: state.selectAll
    })
 }
 
