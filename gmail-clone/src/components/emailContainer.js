@@ -20,7 +20,7 @@ const EmailContainer = ({emails}) => {
 
 const mapStatetoProps = state => {
    return ({
-     emails: state
+     emails: state.messages
    })
 }
 

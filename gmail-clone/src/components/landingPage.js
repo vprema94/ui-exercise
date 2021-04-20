@@ -1,15 +1,11 @@
 import React from 'react';
 import { Grid, Header } from 'semantic-ui-react';
 import EmailContainer from './emailContainer';
+import IconBar from './iconBar';
 
 const LandingPage = () => { 
 
    return (
-      // <div>
-      //    <Container>
-      //       <EmailContainer/>
-      //    </Container>
-      // </div> 
       <Grid celled='internally'>
          <Grid.Row>
             <Header>GMAIL</Header>
@@ -20,7 +16,7 @@ const LandingPage = () => {
             </Grid.Column>
             <Grid.Column width={13}>
                <Grid.Row>
-                  <Header>Top Icons</Header>
+                  <IconBar />
                </Grid.Row>
                <Grid.Row>
                   <EmailContainer/>
@@ -33,22 +29,3 @@ const LandingPage = () => {
 }
 
 export default LandingPage; 
-
-<Grid celled='internally'>
-   <Grid.Row>
-      <Header>GMAIL</Header>
-   </Grid.Row>
-<Grid.Row>
-  <Grid.Column width={3}>
-      <b>Left Column</b>
-  </Grid.Column>
-  <Grid.Column width={13}>
-    <Grid.Row>
-         <Header>Top Icons</Header>
-    </Grid.Row>
-    <Grid.Row>
-    <EmailContainer/>
-    </Grid.Row>
-  </Grid.Column>
-</Grid.Row>
-</Grid>

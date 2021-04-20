@@ -1,18 +1,28 @@
-const emailData = require('../emails.json').messages
-
-const initialState = emailData.map((message => 
+const emailData = require('../emails.json').messages.map((message => 
   ({isSelected: false, ...message})
 )); 
+
+const initialState = { messages: emailData }
 
 export default (state=initialState, action) => {
 
   switch (action.type) {
 
     case 'HANDLE_CHECKBOX':
-      let newState = state
-      const objIndex = newState.findIndex((obj => obj.id === action.emailId));
-      newState[objIndex].isSelected = true
-      return newState
+      let newMessages = state.messages
+      const objIndex = newMessages.findIndex((message => message.id === action.emailId));
+      newMessages[objIndex].isSelected = !newMessages[objIndex].isSelected
+      return {
+        messages: newMessages
+      } 
+
+    case 'SELECT_ALL_MESSAGES':
+      let selectedMessages = state.messages.map((message) => {
+        return {...message, isSelected: true}
+      })
+      return {
+        messages: selectedMessages,
+      } 
 
     default:
       return initialState;

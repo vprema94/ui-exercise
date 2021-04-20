@@ -4,3 +4,9 @@ export const handleCheckbox = (emailId) => {
       emailId
    }
 } 
+
+export const selectAllMessages = () => {
+   return {
+      type: 'SELECT_ALL_MESSAGES',
+   }
+} 
