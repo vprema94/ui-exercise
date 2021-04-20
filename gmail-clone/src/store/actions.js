@@ -1,6 +1,6 @@
-export const example = example => {
+export const handleCheckbox = (emailId) => {
    return {
-      type: 'EXAMPLE',
-      example: example
+      type: 'HANDLE_CHECKBOX',
+      emailId
    }
-}
+} 

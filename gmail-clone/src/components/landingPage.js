@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Segment, Grid, Header } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 import EmailContainer from './emailContainer';
 
 const LandingPage = () => { 
