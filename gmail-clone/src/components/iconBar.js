@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Container, Checkbox } from 'semantic-ui-react';
+import { Container, Checkbox, Icon } from 'semantic-ui-react';
 import { selectAllMessages, deselectAllMessages } from '../store/actions'
+import '../stylesheets/iconBar.css';
 
 const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages }) => {
 
@@ -20,12 +21,19 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages }
           })
          selectAllMessages(selectedMessages)
       }
-   }
+   } 
+
+   const checkboxSelected = messages.some(message => (message.isSelected))
 
    return (
       <div>
-         <Container>
+         <Container id='icon-container'>
             <Checkbox checked={checked} onClick={toggleCheckbox}/>
+            {checkboxSelected &&       
+               <div>
+                  <Icon name='tag'/>
+                  <Icon name='trash alternate'/>
+               </div>}
          </Container>
       </div>
    )
