@@ -1,4 +1,10 @@
-let initialRenderState = require('../emails.json').messages
+const emailData = require('../emails.json').messages
+
+const initialRenderState = emailData.map((message => 
+  ({isSelected: true, ...message})
+)); 
+
+console.log('HELLO', initialRenderState)
 
 export default (state = initialRenderState, action) => {
 

@@ -1,4 +1,4 @@
-#email-row-container {
+.email-row-container {
    display: flex; 
    align-items: baseline;
 } 
@@ -15,9 +15,9 @@
 } 
 
 #subject {
-   width: 63%;
+   width: 60%;
 } 
 
 #date {
-   width: 7%;
+   width: 10%;
 }

@@ -3,16 +3,19 @@ import { Segment, Checkbox, Label, Icon, Grid } from 'semantic-ui-react';
 import '../stylesheets/emailRow.css';
 
 
-const EmailRow = () => {
+const EmailRow = ({id, subject, sender, date, isSelected}) => {
+
+   const formattedDate = new Date(date).toDateString()
+
    return (
-      <Grid.Row id='email-row-container'>
+      <Grid.Row class='email-row-container' id={id}>
          <div id='icons'>
-            <Checkbox />
+            <Checkbox checked={isSelected}/>
             <Icon name='star'/>
          </div>
-         <b id='sender'>Sender</b>
-         <b id='subject'>Subject</b>
-         <b id='date'>Date</b>
+         <b id='sender'>{sender}</b>
+         <b id='subject'>{subject}</b>
+         <b id='date'>{formattedDate}</b>
       </Grid.Row>
    )
 } 

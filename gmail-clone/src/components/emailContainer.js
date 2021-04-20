@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const EmailContainer = ({emails}) => {
 
    const mapMessages = emails.map((message => 
-      <EmailRow/>
+      <EmailRow id={message.id} subject={message.subject} sender={message.sender} date={message.date} isSelected={message.isSelected}/>
    ))
 
    return (
