@@ -1,11 +1,11 @@
 import React from 'react';
-import { Segment, Checkbox, Label, Icon } from 'semantic-ui-react';
+import { Segment, Checkbox, Label, Icon, Grid } from 'semantic-ui-react';
 import '../stylesheets/emailRow.css';
 
 
 const EmailRow = () => {
    return (
-      <Segment id='email-row-container'>
+      <Grid.Row id='email-row-container'>
          <div id='icons'>
             <Checkbox />
             <Icon name='star'/>
@@ -13,7 +13,7 @@ const EmailRow = () => {
          <b id='sender'>Sender</b>
          <b id='subject'>Subject</b>
          <b id='date'>Date</b>
-      </Segment>
+      </Grid.Row>
    )
 } 
 
