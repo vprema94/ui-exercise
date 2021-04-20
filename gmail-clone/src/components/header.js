@@ -6,7 +6,7 @@ const GmailHeader = () => {
    return (
       <div id='header-container'>
          <img src={gmail} id='logo'/>
-         <Header id='header' content='GMAIL' size='large'/>
+         <Header id='header' content='GMAIL' size='huge'/>
       </div>
    )
 } 
