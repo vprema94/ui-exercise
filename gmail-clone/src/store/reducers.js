@@ -2,7 +2,7 @@ const emailData = require('../emails.json').messages.map((message =>
   ({isSelected: false, ...message})
 )); 
 
-const initialState = { messages: emailData }
+const initialState = { messages: emailData, selectAll: false }
 
 export default (state=initialState, action) => {
 
@@ -13,7 +13,7 @@ export default (state=initialState, action) => {
       const objIndex = newMessages.findIndex((message => message.id === action.emailId));
       newMessages[objIndex].isSelected = !newMessages[objIndex].isSelected
       return {
-        messages: newMessages
+        ...state, messages: newMessages
       } 
 
     case 'SELECT_ALL_MESSAGES':
@@ -21,7 +21,15 @@ export default (state=initialState, action) => {
         return {...message, isSelected: true}
       })
       return {
-        messages: selectedMessages,
+        messages: selectedMessages, selectAll: true
+      } 
+
+    case 'DESELECT_ALL_MESSAGES':
+      let deselectedMessages = state.messages.map((message) => {
+        return {...message, isSelected: false}
+      })
+      return {
+        messages: deselectedMessages, selectAll: false
       } 
 
     default:

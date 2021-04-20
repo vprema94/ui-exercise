@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Container, Checkbox } from 'semantic-ui-react';
-import { selectAllMessages } from '../store/actions'
+import { selectAllMessages, deselectAllMessages } from '../store/actions'
 
-const IconBar = ({ selectAllMessages }) => {
+const IconBar = ({ selectAll, selectAllMessages, deselectAllMessages }) => {
 
    const [checked, setChecked] = useState(false);
 
    const toggleCheckbox = () => {
       setChecked(!checked)
-      selectAllMessages()
+      if (selectAll) {
+         deselectAllMessages()
+      } else {
+         selectAllMessages()
+      }
    }
 
    return (
@@ -21,4 +25,10 @@ const IconBar = ({ selectAllMessages }) => {
    )
 } 
 
-export default connect(null, {selectAllMessages})(IconBar)
+const mapStatetoProps = state => {
+   return ({
+     selectAll: state.selectAll
+   })
+}
+
+export default connect(mapStatetoProps, {selectAllMessages, deselectAllMessages})(IconBar)

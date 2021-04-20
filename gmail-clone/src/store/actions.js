@@ -10,3 +10,9 @@ export const selectAllMessages = () => {
       type: 'SELECT_ALL_MESSAGES',
    }
 } 
+
+export const deselectAllMessages = () => {
+   return {
+      type: 'DESELECT_ALL_MESSAGES',
+   }
+} 
