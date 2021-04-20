@@ -1,6 +1,6 @@
 import React from 'react';
-import { Checkbox, Icon, Grid } from 'semantic-ui-react';
-import '../stylesheets/emailRow.css';
+import { Checkbox, Icon, Segment } from 'semantic-ui-react';
+import '../stylesheets/emailContainer.css';
 import { connect } from 'react-redux';
 import { handleCheckbox } from '../store/actions';
 
@@ -16,15 +16,21 @@ const EmailRow = ({id, subject, sender, date, isSelected, handleCheckbox, emails
    }
 
    return (
-      <Grid.Row class='email-row-container' id={id}>
+      <Segment id='email-row-container'>
          <div id='icons'>
             <Checkbox checked={isSelected} onClick={onCheckboxClick}/>
-            <Icon name='star'/>
+            <Icon name='star' color='yellow'/>
          </div>
-         <b id='sender'>{sender}</b>
-         <b id='subject'>{subject}</b>
-         <b id='date'>{formattedDate}</b>
-      </Grid.Row>
+         <div id='sender'>
+            <b>{sender}</b>
+         </div>
+         <div id='subject'>
+            <b>{subject}</b>
+         </div>
+         <div id='date'>
+            <b>{formattedDate}</b>
+         </div>
+      </Segment>
    )
 }  
 

@@ -1,4 +1,15 @@
+#icon-row {
+   display: flex; 
+   align-items: baseline;
+   flex-direction: row;
+   width: 100%;
+} 
+
 #icon-container {
    display: flex; 
+   align-items: baseline;
    flex-direction: row;
+   padding: 0em 1em 0em 1em;
+   width: 10%;
+   justify-content: space-evenly;
 } 

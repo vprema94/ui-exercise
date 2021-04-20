@@ -1,0 +1,14 @@
+#header-container {
+   display: flex;
+   flex-direction: row;
+   align-items: baseline;
+}
+
+#logo {
+   height: 30px;
+   width: 60px;
+} 
+
+#header {
+   margin: 0px 0px 0px 0px;
+}

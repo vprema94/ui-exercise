@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import EmailRow from './emailRow';
 import { connect } from 'react-redux';
+import '../stylesheets/emailContainer.css';
 
 const EmailContainer = ({ emails, selectedTag }) => {
 
@@ -26,10 +27,10 @@ const EmailContainer = ({ emails, selectedTag }) => {
    ))
 
    return (
-      <div>
-         <Grid celled>
+      <div id='email-container'>
+         <Segment.Group>
             {mapMessages}
-         </Grid>
+         </Segment.Group>
       </div>
    )
 } 

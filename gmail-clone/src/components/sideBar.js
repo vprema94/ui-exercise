@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { List } from 'semantic-ui-react';
 import { filterByTag } from '../store/actions'
+import '../stylesheets/sideBar.css';
 
 const SideBar = ({ filterByTag }) => {
 
    return (
-      <div>
+      <div id='side-bar-container'>
          <List divided relaxed>
             <List.Item onClick={() => filterByTag('inbox')}>
                <List.Icon name='inbox' size='large' verticalAlign='middle' />

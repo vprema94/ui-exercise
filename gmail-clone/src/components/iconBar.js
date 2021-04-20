@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Container, Checkbox, Icon } from 'semantic-ui-react';
+import { Segment, Checkbox, Icon, Popup } from 'semantic-ui-react';
 import { selectAllMessages, deselectAllMessages, deleteMessages } from '../store/actions'
 import '../stylesheets/iconBar.css';
 
@@ -42,14 +42,22 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, 
 
    return (
       <div>
-         <Container id='icon-container'>
-            <Checkbox checked={checked} onClick={toggleCheckbox}/>
+         <Segment id='icon-row'>
+            <Popup content='Select'
+               position='bottom center' 
+               trigger={<Checkbox checked={checked} onClick={toggleCheckbox}/>} 
+               inverted
+            />
             {checkboxSelected &&       
-               <div>
-                  <Icon name='tag'/>
-                  <Icon name='trash alternate' onClick={handleDelete}/>
+               <div id='icon-container'>
+                  <Icon name='tag' size='large'/>
+                  <Popup content='Delete'
+                     position='bottom center' 
+                     trigger={<Icon name='trash alternate' size='large' onClick={handleDelete}/>} 
+                     inverted
+                  />
                </div>}
-         </Container>
+         </Segment>
       </div>
    )
 } 

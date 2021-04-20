@@ -1,6 +1,12 @@
-.email-row-container {
+#email-container {
+   padding: 2em 0em 2em 0em;
+}
+
+#email-row-container {
    display: flex; 
    align-items: baseline;
+   flex-direction: row;
+   width: 100%;
 } 
 
 #icons {
@@ -10,7 +16,7 @@
 } 
 
 #sender {
-   width: 20%;
+   width: 25%;
    padding: 0em 2em 0em 2em;
 } 
 
