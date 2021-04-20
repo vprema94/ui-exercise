@@ -13,8 +13,9 @@ export default (state=initialState, action) => {
       const objIndex = newMessages.findIndex((message => message.id === action.emailId));
       newMessages[objIndex].isSelected = !newMessages[objIndex].isSelected
       return {
-        ...state, messages: newMessages
-      } 
+        ...state, 
+        messages: [...newMessages],
+      }
 
     case 'SELECT_ALL_MESSAGES':
       let selectedMessages = state.messages.map((message) => {
