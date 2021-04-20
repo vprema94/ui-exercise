@@ -16,7 +16,7 @@ const EmailContainer = ({ emails, selectedTag }) => {
          ))
       } else {
          return emails.filter(message => (
-            message.tags.includes(selectedTag)
+            !message.isDeleted && message.tags.includes(selectedTag)
          ))
       }
    }

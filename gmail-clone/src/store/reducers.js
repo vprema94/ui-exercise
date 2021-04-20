@@ -32,6 +32,12 @@ export default (state=initialState, action) => {
         selectedTag: action.selectedTag
       } 
 
+    case 'DELETE_MESSAGES':
+      return {
+        ...state,
+        messages: [...action.deletedMessages]
+      } 
+
     default:
       return initialState;
   }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Container, Checkbox, Icon } from 'semantic-ui-react';
-import { selectAllMessages, deselectAllMessages } from '../store/actions'
+import { selectAllMessages, deselectAllMessages, deleteMessages } from '../store/actions'
 import '../stylesheets/iconBar.css';
 
-const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages }) => {
+const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, deleteMessages }) => {
 
    const [checked, setChecked] = useState(false);
 
@@ -23,6 +23,21 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages }
       }
    } 
 
+   const handleDelete = () => {
+      const deletedMessages = messages.map((message) => {
+         if (message.isSelected){
+             return (
+                 {...message, isDeleted: true, isSelected: false}
+             )
+         } else {
+            return (
+               {...message}
+            )
+         }
+      }) 
+      deleteMessages(deletedMessages)
+   } 
+
    const checkboxSelected = messages.some(message => (message.isSelected))
 
    return (
@@ -32,7 +47,7 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages }
             {checkboxSelected &&       
                <div>
                   <Icon name='tag'/>
-                  <Icon name='trash alternate'/>
+                  <Icon name='trash alternate' onClick={handleDelete}/>
                </div>}
          </Container>
       </div>
@@ -46,4 +61,4 @@ const mapStatetoProps = state => {
    })
 }
 
-export default connect(mapStatetoProps, {selectAllMessages, deselectAllMessages})(IconBar)
+export default connect(mapStatetoProps, {selectAllMessages, deselectAllMessages, deleteMessages})(IconBar)

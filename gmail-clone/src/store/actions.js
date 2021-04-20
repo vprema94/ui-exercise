@@ -26,4 +26,11 @@ export const filterByTag = (selectedTag) => {
    }
 } 
 
+export const deleteMessages = (deletedMessages) => {
+   return {
+      type: 'DELETE_MESSAGES',
+      deletedMessages
+   }
+} 
+
 
