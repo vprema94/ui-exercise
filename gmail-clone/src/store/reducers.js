@@ -4,7 +4,7 @@ const emailData = require('../emails.json').messages.map((message =>
 
 const initialState = { messages: emailData, selectAll: false, selectedTag: 'inbox' }
 
-export default (state=initialState, action) => {
+const allReducers = (state=initialState, action) => {
 
   switch (action.type) {
 
@@ -32,13 +32,15 @@ export default (state=initialState, action) => {
         selectedTag: action.selectedTag
       } 
 
-    case 'DELETE_MESSAGES':
+    case 'UPDATE_MESSAGES':
       return {
         ...state,
-        messages: [...action.deletedMessages]
+        messages: [...action.updatedMessages], selectAll: false,
       } 
 
     default:
       return initialState;
   }
 }  
+
+export default allReducers

@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Segment, Checkbox, Icon, Popup } from 'semantic-ui-react';
-import { selectAllMessages, deselectAllMessages, deleteMessages } from '../store/actions'
+import { selectAllMessages, deselectAllMessages, updateMessages } from '../store/actions'
 import '../stylesheets/iconBar.css';
 
-const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, deleteMessages }) => {
-
-   const [checked, setChecked] = useState(false);
+const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, updateMessages }) => {
 
    const toggleCheckbox = () => {
-      setChecked(!checked)
       if (selectAll) {
          let deselectedMessages = messages.map((message) => {
             return {...message, isSelected: false}
@@ -35,7 +32,22 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, 
             )
          }
       }) 
-      deleteMessages(deletedMessages)
+      updateMessages(deletedMessages)
+   } 
+
+   const handleInbox = () => {
+      const selectedMessages = messages.map((message) => {
+         if (message.isSelected){
+             return (
+                 {...message, isDeleted: false, isSelected: false}
+             )
+         } else {
+            return (
+               {...message}
+            )
+         }
+      }) 
+      updateMessages(selectedMessages)
    } 
 
    const checkboxSelected = messages.some(message => (message.isSelected))
@@ -43,9 +55,9 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, 
    return (
       <div>
          <Segment id='icon-row'>
-            <Popup content='Select'
+            <Popup content='Select All'
                position='bottom center' 
-               trigger={<Checkbox checked={checked} onClick={toggleCheckbox}/>} 
+               trigger={<Checkbox checked={selectAll} onClick={toggleCheckbox}/>} 
                inverted
             />
             {checkboxSelected &&       
@@ -54,6 +66,11 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, 
                   <Popup content='Delete'
                      position='bottom center' 
                      trigger={<Icon name='trash alternate' size='large' onClick={handleDelete}/>} 
+                     inverted
+                  />
+                  <Popup content='Move to Inbox'
+                     position='bottom center' 
+                     trigger={<Icon name='inbox' size='large' onClick={handleInbox}/>} 
                      inverted
                   />
                </div>}
@@ -69,4 +86,4 @@ const mapStatetoProps = state => {
    })
 }
 
-export default connect(mapStatetoProps, {selectAllMessages, deselectAllMessages, deleteMessages})(IconBar)
+export default connect(mapStatetoProps, {selectAllMessages, deselectAllMessages, updateMessages})(IconBar)

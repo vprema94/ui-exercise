@@ -26,10 +26,10 @@ export const filterByTag = (selectedTag) => {
    }
 } 
 
-export const deleteMessages = (deletedMessages) => {
+export const updateMessages = (updatedMessages) => {
    return {
-      type: 'DELETE_MESSAGES',
-      deletedMessages
+      type: 'UPDATE_MESSAGES',
+      updatedMessages
    }
 } 
 

@@ -8,7 +8,7 @@ const SideBar = ({ filterByTag }) => {
 
    return (
       <div id='side-bar-container'>
-         <List divided relaxed>
+         <List selection divided>
             <List.Item onClick={() => filterByTag('inbox')}>
                <List.Icon name='inbox' size='large' verticalAlign='middle' />
                <List.Content>

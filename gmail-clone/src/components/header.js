@@ -5,7 +5,7 @@ import gmail from '../images/gmail.svg'
 const GmailHeader = () => {
    return (
       <div id='header-container'>
-         <img src={gmail} id='logo'/>
+         <img src={gmail} alt='GMAIL' id='logo'/>
          <Header id='header' content='GMAIL' size='huge'/>
       </div>
    )
