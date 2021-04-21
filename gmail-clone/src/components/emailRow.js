@@ -16,7 +16,7 @@ const EmailRow = ({id, subject, sender, date, isSelected, handleCheckbox, emails
    }
 
    return (
-      <Segment id='email-row-container'>
+      <Segment id='email-row-container' data-testid='emailRow'>
          <div id='icons'>
             <Checkbox checked={isSelected} onClick={onCheckboxClick}/>
             <Icon name='star' color='yellow'/>

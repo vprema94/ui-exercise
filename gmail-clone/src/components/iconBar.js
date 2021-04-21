@@ -57,7 +57,7 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, 
          <Segment id='icon-row'>
             <Popup content='Select All'
                position='bottom center' 
-               trigger={<Checkbox checked={selectAll} onClick={toggleCheckbox}/>} 
+               trigger={<Checkbox checked={selectAll} onClick={toggleCheckbox} data-testid='selectAllCheckbox'/>} 
                inverted
             />
             {checkboxSelected &&       
@@ -65,7 +65,7 @@ const IconBar = ({ selectAll, messages, selectAllMessages, deselectAllMessages, 
                   <Icon name='tag' size='large'/>
                   <Popup content='Delete'
                      position='bottom center' 
-                     trigger={<Icon name='trash alternate' size='large' onClick={handleDelete}/>} 
+                     trigger={<Icon name='trash alternate' size='large' onClick={handleDelete} data-testid='trashIcon'/>} 
                      inverted
                   />
                   <Popup content='Move to Inbox'

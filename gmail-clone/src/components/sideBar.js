@@ -15,7 +15,7 @@ const SideBar = ({ filterByTag }) => {
                   <List.Header as='h3'>Inbox</List.Header>
                </List.Content>
             </List.Item>
-            <List.Item onClick={() => filterByTag('work')}>
+            <List.Item onClick={() => filterByTag('work')} data-testid='workTag'>
                <List.Icon name='tag' size='large' verticalAlign='middle' />
                <List.Content>
                   <List.Header as='h3'>Work</List.Header>

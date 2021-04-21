@@ -4,7 +4,7 @@ import LandingPage from './components/landingPage';
 const App = () => {
   return (
     <div className="App">
-      <LandingPage /> 
+      <LandingPage data-testid='landingPage'/> 
     </div>
   );
 }

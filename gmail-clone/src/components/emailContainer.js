@@ -22,8 +22,8 @@ const EmailContainer = ({ emails, selectedTag }) => {
       }
    }
 
-   const mapMessages = filteredEmails().map((message => 
-      <EmailRow id={message.id} subject={message.subject} sender={message.sender} date={message.date} isSelected={message.isSelected}/>
+   const mapMessages = filteredEmails().map(((message, i) => 
+      <EmailRow key={i} id={message.id} subject={message.subject} sender={message.sender} date={message.date} isSelected={message.isSelected}/>
    ))
 
    return (
